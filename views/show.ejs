@@ -1,0 +1,57 @@
+<%- include("partials/header") %>
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1><span class="glyphicon glyphicon-th-list"></span>Welcome to SmartWork</h1>
+			<h2><%= name %></h2>
+			<a class="btn btn-primary btn-lg" href="/team/task/new">Add a new task</a>
+			<a class="btn btn-primary btn-lg" href="/add/<%= id %>">Add a member to the group.</a>
+		</div>
+	</header>
+	<h4>Your team Access code is : <%= id %> . Share this access code with anyone who wants to join the team.</h4>
+	<div>
+		<h3>List of all team members:</h3>
+		<ul class="list-group">
+		<% memebers.forEach(function(memeber){ %>
+  		<li class="list-group-item" style="width: 100px;"><%= memeber %></li>
+  		<%});%>
+  		</ul>
+	</div>
+	<h3>List of tasks:</h3>
+	<div class="row text-center" style="display: flex; flex-wrap: wrap;">
+		<% tasks.forEach(function(task){ %>
+			<div class="col-md-3 col-sm-6 taskblog">
+				<div class="thumbnail">
+					<div class="caption" style="background-color: rgba(159, 192, 245, 0.5);">
+						<h3>Task Name:</h3><h4><%= task.name %></h4>
+					</div>
+					<div class="caption" style="background-color: rgba(159, 192, 245, 0.5);">
+						<h3>Task description:</h3><h4><%= task.description %></h4>
+					</div>
+					<div class="caption" style="background-color: rgba(159, 192, 245, 0.5);">
+						<h3>Deadline:</h3><h4> <%= task.deadline %></h4>
+					</div>
+					<div class="caption" style="background-color: rgba(159, 192, 245, 0.5);">
+						<h3>Person responsible: </h3><h4><%= task.doneby %></h4>
+					</div>
+					<div>
+						<button class="btn btn-lg btn-default btn-primary delbut">Delete</button>
+					</div>
+				</div>
+			</div>
+		<%});%>
+	</div>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$(".taskblog").click(function(){
+	console.log("hey")
+  $(this).remove();
+});
+
+
+</script>
+<%- include("partials/footer") %>

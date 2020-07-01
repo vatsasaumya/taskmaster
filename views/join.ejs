@@ -1,0 +1,30 @@
+.<%- include("partials/header") %>
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1><span class="glyphicon glyphicon-th-list"></span>Welcome to SmartWork</h1>
+			<p>All the teams are listed below.You can join any of the teams by clicking on join. After clicking on join you will have to enter the access code to join the team. You can get the access code from the current members of the team you want to join or you can create your own team by clicking on the button below.</p>
+			<a href="/create" class="btn btn-lg btn-primary">Create own team</a>
+		</div>
+	</header>
+	<div class="row text-center" style="display: flex; flex-wrap: wrap;">
+		<% teams.forEach(function(team){ %>
+			<div class="col-md-3 col-sm-6 taskblog">
+				<div class="thumbnail">
+					<div class="caption">
+						<h4><%= team.name %></h4>
+					</div>
+					<div class="caption">
+						<h4><%= team.description %></h4>
+					</div>
+					<div>
+						<a href="/team/join/<%= team._id %>">Join</a>
+					</div>
+				</div>
+			</div>
+		<%});%>
+	</div>
+
+</div>
+
+<%- include("partials/footer") %>

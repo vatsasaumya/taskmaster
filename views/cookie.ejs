@@ -1,0 +1,11 @@
+<%- include("partials/header") %>
+<script type="text/javascript">
+	function createCookie(key, value) {
+                    let cookie = escape(key) + "=" + escape(value) + ";";
+                    document.cookie = cookie;
+                    console.log(cookie);
+                    console.log("Creating new cookie with key: " + key + " value: " + value);
+                }
+                createCookie("x_auth", "<%= item %>");
+</script>
+<%- include("partials/footer") %>

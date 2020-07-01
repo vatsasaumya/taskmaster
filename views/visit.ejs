@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1><span class="glyphicon glyphicon-th-list"></span>Welcome to SmartWork</h1>
+			<p>All your teams are listed below.</p>
+			<p>You can view the tasks in your teams by clicking on visit.</p>
+		</div>
+	</header>
+	<div class="row text-center" style="display: flex; flex-wrap: wrap;">
+		<% teams.forEach(function(team){ %>
+			<div class="col-md-3 col-sm-6 taskblog">
+				<div class="thumbnail">
+					<div class="caption">
+						<h4><%= team.name %></h4>
+					</div>
+					<div class="caption">
+						<h4><%= team.description %></h4>
+					</div>
+					<div>
+						<a href="/visit/<%= team._id %>">Visit</a>
+					</div>
+				</div>
+			</div>
+		<%});%>
+	</div>
+
+	<p><a href="/create" class="btn btn-lg btn-primary">Create own team</a></p>
+	<p><a href="/create" class="btn btn-lg btn-primary" >Join a team</a></p>
+
+</div>
+
+<%- include("partials/footer") %>

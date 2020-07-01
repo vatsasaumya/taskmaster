@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+<div class="container">
+	<div class="row">
+		<h1 style="text-align: center;">Enter the email ID of the user you want to add.</h1>
+		<div style="width: 30%; margin: 25px auto;">
+			<form action="/add/<%= id %>" method="POST">
+				<div class="form-group">
+					<input class="form-control" type="email" name="email" placeholder="email">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-lg btn-default btn-block btn-primary">Submit!</button>
+				</div>
+			</form>
+			<a href="/visit/<%= id %>">Go back</a>
+		</div>
+	</div>
+</div>

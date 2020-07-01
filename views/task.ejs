@@ -1,0 +1,55 @@
+<%- include("partials/header") %>
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to SmartWork</h1>
+			<h3>You are currently on the personal board.</h3>
+			<p>You can see all your tasks here!!</p>
+			<a class="btn btn-primary btn-lg" href="/task/new">Add a new task</a>
+			<div class="dropdown" style="margin-top: 10px;">
+				  <button type="button" class="btn btn-primary dropdown-toggle btn-lg"  data-toggle="dropdown">
+				    Teams  <span class="glyphicon glyphicon-triangle-bottom"></span>
+				  </button>
+				  <div class="dropdown-menu" style="margin-top: 10px; !important">
+				  	<ul style="list-style-type: none">
+				  		<li><a class="dropdown-item" href="/create">Create a team</a></li>
+				  		<li><a class="dropdown-item" href="/join">Join a team</a></li>
+				  		<li><a class="dropdown-item" href="/visit">Visit team</a></li>
+				  	</ul>
+		  		</div>
+			</div>
+		</div>
+	</header>
+	<div class="row text-center" style="display: flex; flex-wrap: wrap;">
+		<% tasks.forEach(function(task){ %>
+			<div class="col-md-3 col-sm-6 taskblog">
+				<div class="thumbnail">
+					<div class="caption">
+						<h4><%= task.name %></h4>
+					</div>
+					<div class="caption">
+						<h4><%= task.description %></h4>
+					</div>
+					<div class="caption">
+						<h4><%= task.deadline %></h4>
+					</div>
+					<p><a href="/task/delete/<%= task._id %>"><span class="glyphicon glyphicon-trash"></span></a></p>
+				</div>
+			</div>
+		<%});%>
+	</div>
+
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$(".taskblog").click(function(){
+	console.log("hey")
+  $(this).remove();
+});
+
+
+</script>
+<%- include("partials/footer") %>
